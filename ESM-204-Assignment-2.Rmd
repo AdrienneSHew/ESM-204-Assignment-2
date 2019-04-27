@@ -48,12 +48,21 @@ low_demand<-lm(Price_Dollars~Q_Low_Gallons_per_Day, data=original_data)
 
 high_demand<-lm(Price_Dollars~Q_High_Gallons_per_Day, data=original_data)
 
+summary(low_demand)
+
 ```
 
 ```{r}
 
 demand_plots<-ggplot(original_data, aes(x=Q_Low_Gallons_per_Day, y=Price_Dollars))+
-  geom_point()+
-  geom_point(color="blue", aes(x=Q_High_Gallons_per_Day))
+  geom_line()+
+  geom_line(color="blue", aes(x=Q_High_Gallons_per_Day)) +
+  geom_smooth(method = lm)
 
-```
+demand_plots
+
+demand_curves <- ggplot(data=original_data, aes(x=Q_Low_Gallons_per_Day, y=Price_Dollars, group=High_Gallons_per_Day)) +
+            geom_line(aes(colour=Low_Gallons_per_Day)) +
+            geom_smooth(aes(group=High_Gallons_per_Day))
+
+demand_curves
