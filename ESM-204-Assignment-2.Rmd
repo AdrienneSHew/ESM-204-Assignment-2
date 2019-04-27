@@ -1,0 +1,41 @@
+---
+title: "ESM 204 Assignment 2"
+author: "Adrienne Hewitt, Alex Brown"
+date: "April 26, 2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r}
+
+library(tidyverse)
+
+```
+
+```{r}
+
+original_data<-read_csv("Hmwk2_Data.csv")
+
+```
+
+
+
+```{r}
+
+low_demand<-lm(Price_Dollars~Q_Low_Gallons_per_Day, data=original_data)
+
+high_demand<-lm(Price_Dollars~Q_High_Gallons_per_Day, data=original_data)
+
+```
+
+```{r}
+
+demand_plots<-ggplot(original_data, aes(x=Q_Low_Gallons_per_Day, y=Price_Dollars))+
+  geom_point()+
+  geom_point(color="blue", aes(x=Q_High_Gallons_per_Day))
+
+```
