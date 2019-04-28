@@ -3,6 +3,8 @@ title: "ESM 204 Assignment 2"
 author: "Adrienne Hewitt, Alex Brown"
 date: "April 26, 2019"
 output: html_document
+editor_options: 
+  chunk_output_type: inline
 ---
 
 ```{r setup, include=FALSE}
@@ -10,7 +12,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 
-```{r}
+```{r, include=FALSE, warning=FALSE}
 
 library(tidyverse)
 library(knitr)
@@ -34,15 +36,15 @@ library(ggimage)
 library(stargazer)
 ```
 
-```{r}
+```{r, include=FALSE, warning=FALSE}
 
 original_data<-read_csv("Hmwk2_Data.csv")
 
 ```
 
+###1
 
-
-```{r}
+```{r, include=FALSE}
 
 low_demand<-lm(Price_Dollars~Q_Low_Gallons_per_Day, data=original_data)
 
@@ -52,17 +54,17 @@ summary(low_demand)
 
 ```
 
-```{r}
-
-demand_plots<-ggplot(original_data, aes(x=Q_Low_Gallons_per_Day, y=Price_Dollars))+
+```{r, echo=FALSE}
+demand_plots <- ggplot(original_data, aes(x=Q_Low_Gallons_per_Day, y=Price_Dollars))+
   geom_line()+
   geom_line(color="blue", aes(x=Q_High_Gallons_per_Day)) +
   geom_smooth(method = lm)
 
 demand_plots
 
-demand_curves <- ggplot(data=original_data, aes(x=Q_Low_Gallons_per_Day, y=Price_Dollars, group=High_Gallons_per_Day)) +
-            geom_line(aes(colour=Low_Gallons_per_Day)) +
-            geom_smooth(aes(group=High_Gallons_per_Day))
+demand_curves <- ggplot(data=original_data, aes(x=Q_High_Gallons_per_Day, y=Price_Dollars)) + geom_line(aes(colour=Q_Low_Gallons_per_Day)) + geom_smooth(aes(group=Q_High_Gallons_per_Day))
 
 demand_curves
+```
+
+
