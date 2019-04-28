@@ -52,6 +52,8 @@ high_demand<-lm(Price_Dollars~Q_High_Gallons_per_Day, data=original_data)
 
 summary(low_demand)
 
+summary(high_demand)
+
 ```
 
 ```{r, echo=FALSE}
@@ -65,6 +67,13 @@ demand_plots
 demand_curves <- ggplot(data=original_data, aes(x=Q_High_Gallons_per_Day, y=Price_Dollars)) + geom_line(aes(colour=Q_Low_Gallons_per_Day)) + geom_smooth(aes(group=Q_High_Gallons_per_Day))
 
 demand_curves
+
+demand_curve <- ggplot(data.frame(x = c(0, 150000)), aes(x = x)) +
+        stat_function(fun = dnorm, args = list(200, 100)) +
+        stat_function(fun = dnorm, args = list(700, 50))
+
+
+demand_curve
 ```
 
 
