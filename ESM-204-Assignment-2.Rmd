@@ -56,6 +56,25 @@ summary(high_demand)
 
 ```
 
+
+```{r}
+#defining low demand
+lowdemand<-function(x) { 21.9908534 -0.0001355*x}
+
+#defining high demand
+highdemand<-function(x) {23.3914418-0.0001297*x}
+
+#defining aggregate demand
+aggdemand<-function(x) {22.70647-0.00006626831*x}
+
+#defining supply
+supply<-function(x) {0.00001871302*x}
+
+#defining MEC
+MEC<-function(x) {2}
+
+```
+
 ```{r, echo=FALSE}
 demand_plots <- ggplot(original_data, aes(x=Q_Low_Gallons_per_Day, y=Price_Dollars))+
   geom_line()+
