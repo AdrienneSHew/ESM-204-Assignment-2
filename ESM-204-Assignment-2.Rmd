@@ -174,7 +174,7 @@ a) the amount of gas produced and sold
     The new equilibrium quantity Q is 261,309
 
 b) the price of gas
-  The price of gas is now about $4.89.
+  The price of gas is now about $4.89. *Note: Under this scenario, price of gas and price that producers receive would not be the same as in scenario 2, which may be why you got nonsimilar results
   
 c) welfare of "high" income consumers
   0.5*(19.3201)*154,241.4661 = 1,489,980.275
