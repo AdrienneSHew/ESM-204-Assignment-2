@@ -341,7 +341,7 @@ Welfare: 406,187.476
   
   d. Environmental damage from gasoline 
   
-  Total Env. Damage = 267,193.6294
+  Total Env. Damage = $267,193.6294
 
 ---------------------------------------------------------------------------
 
@@ -352,7 +352,7 @@ Supply: P = 0.00001871302(Q)
 Equilibrium Quantity: 243,662.86 
 Environmental Cost (Qagg*2) = 487,325.72
 
-The invention of electric cars has a bigger impact on environmental quality than a $2 gas tax. Electric cars produce 267,193.63 (units) of environmental damage. A $2 gas tax produces 487,325.72 (units) of environmental damage. 
+The invention of electric cars has a bigger impact on environmental quality than a $2 gas tax. Electric cars produce 267,193.63 (units) of environmental damage. A $2 gas tax produces $487,325.72 of environmental damage. 
 
 ---------------------------------------------------------------------------
 
