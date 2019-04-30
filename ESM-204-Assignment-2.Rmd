@@ -347,7 +347,12 @@ Welfare: 406,187.476
 
 6. Using these numbers, which has a bigger impact on environmental quality, a $2.00/gal. gas tax or the invention of electric cars? Provide your evidence.
 
-Pretty sure electric cars looking at #4 and #5. I don't know if we need to do calculations for a $2 gas tax since we have $3 and $5 above.
+New Agg demand: P = 20.70647-0.00006626831(Q)
+Supply: P = 0.00001871302(Q)
+Equilibrium Quantity: 243,662.86 
+Environmental Cost (Qagg*2) = 487,325.72
+
+The invention of electric cars has a bigger impact on environmental quality than a $2 gas tax. Electric cars produce 267,193.63 (units) of environmental damage. A $2 gas tax produces 487,325.72 (units) of environmental damage. 
 
 ---------------------------------------------------------------------------
 
