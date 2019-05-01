@@ -76,29 +76,6 @@ MEC<-function(x) {2}
 
 ```
 
-```{r, echo=FALSE}
-#First attempt at graphing demand curves, WRONG
-demand_plots <- ggplot(original_data, aes(x=Q_Low_Gallons_per_Day, y=Price_Dollars))+
-  geom_line()+
-  geom_line(color="blue", aes(x=Q_High_Gallons_per_Day)) +
-  geom_smooth(method = lm)
-
-demand_plots
-```
-
-```{r, echo=FALSE}
-#Second attempt at graphing demand curves, QUESTIONABLE
-demand_curves <- ggplot(data=original_data, aes(x=Q_High_Gallons_per_Day, y=Price_Dollars)) + geom_line(aes(colour=Q_Low_Gallons_per_Day)) + geom_smooth(aes(group=Q_High_Gallons_per_Day))
-
-demand_curves
-
-demand_curve <- ggplot(data.frame(x = c(0, 150000)), aes(x = x)) +
-        stat_function(fun = dnorm, args = list(200, 100)) +
-        stat_function(fun = dnorm, args = list(700, 50))
-
-
-demand_curve
-```
 
 ```{r}
 #Third attempt; SUCCESSFUL
@@ -120,14 +97,27 @@ MECcurve<-ggplot(data.frame(x=c(0,500000)), aes(x=x))+
 #Attempting to look at the complete supply/demand graph
 
 gasgraph<-ggplot(data.frame(x=c(0,400000)), aes(x=x))+
+  stat_function(fun=lowdemand, color="red")+
+  stat_function(fun=highdemand, color="blue")+
+  stat_function(fun=aggdemand, color="purple")+
+  stat_function(fun=supply)+
+  stat_function(fun=MEC, color="dark green")+
+  theme_classic()+
+  labs(x="Gasoline Quantity (Q, in gallons)", y= "Price (P, in $ per gallon)")+
+  scale_x_continuous(expand = c(0,0), limits = c(0,4e5))+
+  scale_y_continuous(expand = c(0,0), limits = c(0,25))
+
+gasgraph
+#________________________________________________________________________
+
+finalgraph<-ggplot(data.frame(x=c(0,400000)), aes(x=x))+
   stat_function(fun=lowdemand, color="yellow")+
   stat_function(fun=highdemand, color="pink")+
   stat_function(fun=aggdemand, color="purple")+
   stat_function(fun=supply, color="brown")+
   stat_function(fun=MEC)+
-  ylim(0,25)
-
-gasgraph
+  ylim(0,25)+
+  geom_density(aes(color = lowdemand, fill = lowdemand), alpha = 0.3)
 ```
 
 Question1:
